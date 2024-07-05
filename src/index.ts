@@ -12,11 +12,11 @@ window.Webflow.push(() => {
 
   const calendar = new Calendar(calendarEl, {
     plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
-    initialView: 'dayGridMonth',
+    initialView: 'timeGridDay',
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
-      right: 'dayGridMonth,timeGridWeek,listWeek',
+      right: 'timeGridDay,timeGridWeek,dayGridMonth',
     },
 
     events: [
