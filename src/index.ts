@@ -27,6 +27,13 @@ window.Webflow.push(() => {
         backgroundColor: '#FF5003',
         borderColor: '#FF5003',
       },
+      {
+        title: 'Family vacation',
+        start: '2024-07-14',
+        end: '2024-07-17',
+        backgroundColor: '#FF5003',
+        borderColor: '#FF5003',
+      },
     ],
   });
   calendar.render();
