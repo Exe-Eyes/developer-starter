@@ -1,40 +1,27 @@
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  const calendarEl = document.querySelector<HTMLDivElement>('[data-element = "calendar"]');
-  if (!calendarEl) return;
+  window.Wized = window.Wized || [];
+  window.Wized.push((Wized) => {
+    const calendarEl = document.querySelector<HTMLDivElement>('[data-element = "calendar"]');
+    if (!calendarEl) return;
 
-  console.log({ calendarEl });
+    const events = Wized.data.v.eventsData;
 
-  const calendar = new Calendar(calendarEl, {
-    plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
-    initialView: 'timeGridDay',
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'timeGridDay,timeGridWeek,dayGridMonth',
-    },
-
-    events: [
-      {
-        title: 'Birthday party',
-        start: '2024-07-05',
-        end: '2024-07-07',
-        backgroundColor: '#FF5003',
-        borderColor: '#FF5003',
+    const calendar = new Calendar(calendarEl, {
+      plugins: [dayGridPlugin, timeGridPlugin],
+      initialView: 'timeGridDay',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'timeGridDay,timeGridWeek,dayGridMonth',
       },
-      {
-        title: 'Family vacation',
-        start: '2024-07-14',
-        end: '2024-07-17',
-        backgroundColor: '#FF5003',
-        borderColor: '#FF5003',
-      },
-    ],
+
+      events: events,
+    });
+    calendar.render();
   });
-  calendar.render();
 });
