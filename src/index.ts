@@ -13,6 +13,7 @@ window.Webflow.push(() => {
 
     const calendar = new Calendar(calendarEl, {
       plugins: [dayGridPlugin, timeGridPlugin],
+      height: 'auto',
       initialView: 'timeGridDay',
       headerToolbar: {
         left: 'prev,next today',
